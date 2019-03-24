@@ -4,8 +4,9 @@ import fasttext
 
 classifier = fasttext.load_model('nwelab3fenci.model.bin', label_prefix='__label__')
 
-ff = open("data/test2.tsv", 'w')  # 打开一个文件可写模式
+ff = open("data/after_test.tsv", 'w')  # 打开一个文件可写模式
 with open("data/test.tsv", 'r') as f:  # 打开一个文件只读模式
+    ff.write("ITEM_NAME" + '\t' + "TYPE" + '\n')
     next(f)
     line = f.readlines()
     for line_list in line:
@@ -15,3 +16,5 @@ with open("data/test.tsv", 'r') as f:  # 打开一个文件只读模式
         line_new = line_new + '\t' + outline[0][0] + '\n'  # 添加预测得到的标签,同时加上"\n"换行符
         print(line_new)  # 控制台显示
         ff.write(line_new)  # 写入一个新文件中
+f.close()
+ff.close()
