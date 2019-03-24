@@ -22,5 +22,3 @@ classifier=fasttext.supervised('data/newlab3fenci.csv','nwelab3fenci.model',epoc
 result = classifier.test('data/newlab3fenci.csv')
 print (result.precision) #准确率
 print (result.recall) #召回率
-
-
